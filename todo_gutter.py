@@ -15,7 +15,7 @@ class TodoGutterCommand(sublime_plugin.EventListener):
         settings = sublime.load_settings('TodoGutter.sublime-settings')
         todo_regexes = settings.get('todo_regexes')
         for regex in todo_regexes:
-            regions.extend(view.find_all(regex))
+            regions.extend(view.find_all('.*' + regex))
         return regions
 
     def on_load(self, view):
